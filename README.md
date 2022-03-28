@@ -3,7 +3,7 @@ An AI puzzle solver for Futoshiki number puzzles.
 Written and compiled with Java SE 11 & JDK 11
 
 ## What is a Futoshiki Puzzle?
-A futoshiki puzzle is a number puzzle similar to sudoku where a square grid --typically 5x5, 6x6 or 7x7-- is seeded with  numbers and rules. The objective is to fill each column and row with the numbers 1 to n --where n is the length of the grid. No repeated numbers are allowed in a given row or column.
+A futoshiki puzzle is a number puzzle similar to sudoku where a square grid --typically 5x5, 6x6 or 7x7-- is seeded with  numbers and rules. The objective is to fill each column and row with the numbers ***1 to n*** --where n is the length of the grid. No repeated numbers are allowed in a given row or column.
 
 Between the numbers are arrows which represent ***greater-than/less-than relationships***, wherein the relationship must hold for each pair of numbers that directly bookend the arrows. Simply put, ***the arrow must always point to the smaller of the two adjacent numbers***.
 
