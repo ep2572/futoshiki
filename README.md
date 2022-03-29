@@ -21,8 +21,24 @@ Not all arrangements of numbers and rules will have a solution.
 ## The program
 The purpose of the futoshiki solver is to find the fastest potential answer or identify that the problem is unsolvable.
 
+### How it works
+ 1. Given the name of an input file in the local directory the program scans the files and extracts the initial state of the puzzle.
+     - A state is a 2D Array of Integer Lists. 
+     - Any index where the initial state is known contains a list of one element, all other indices contain a list of integers from 1 to n, representing the possible values
+ 2. The vertical and horizontal rules are analyzed and adjustments to the lists of possible values are inferred.
+     - Even if no known value exists the uppor or lower bound of an index can be eliminated due to its proximity to a rule.
+ 3. The initial state is then placed into a GameBoard class. The the gameboard class initialized with the initial state will then check each index and for any index that contains only one integer it will perform an infreence update. The inference update eliminates that value from all lists in the same row or column. ***If this results in any list length of 0 then the solution is known to be impossible.***
+     - The initial state is the root of a tree representing the searched paths.
+ 4. The program uses a Backtracking Algorithm to search for a solution. The search follows a recursive, depth-first pattern. In the Backtracking algorithm each iteration performs the following:
+     1. If the task if complete or invalid then return the GameBoard.
+     2. Otherwise, find the first index with the smallest size.
+     3. Build a new GameBoard with a value selected for the chosen index and update the inferences.
+     4. If a failure is returned continue to iterate through the list of possible values until a solution is retuned.
+     5. If no solution is returned then return a failure.
+ 5. If a solution is found then build an output file in the local directory containing the solution.
+
 ### How to Run
- 1. Clone futoshiki repository
+ 1. Clone the futoshiki repository
  2. Using a terminal/command_line, navigate to the futoshiki directory
  3. Enter: `java Futoshiki.java "file"` where "file" is the desired input
  4. The output file is stored as in the main directory `Output#.txt` where `#` is the number of the input.
@@ -33,13 +49,3 @@ Input files are plain text files with 3 clusters of data separated by empty line
  1. The first cluster is an ***n rows*** x ***n columns*** grid, typically ***n*** is between 5 and 7. Values in the grid are integers from 1 to n separated by a space. Any non-zero value in the grid represents the value that must occupy the space. There must be no repeating numbers an any row or column.
  2. The second cluster is an ***n rows*** x ***n-1 columns*** grid, representing the horizontal rules. Any non-zero element must either be `<` or `>`.
  3. The third cluster is an ***n-1 rows*** x ***n columns*** grid, representing the vertical rules. Any non-zero element must either be `v` or `^`.
-
-### Storing input files
-Input an output files are stored in the main directory for ease of use.
-
-## Improving the program
- 1. Considering the small size of sample inputs, no considerations were made towards project organization. Storing the input/output files in a subdirectory would provide a more structured project layout.
- 2. 
-
-
-
