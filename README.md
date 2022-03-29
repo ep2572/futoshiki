@@ -7,6 +7,8 @@ openjdk version "17.0.2" 2022-01-18 LTS
 OpenJDK Runtime Environment Microsoft-30338 (build 17.0.2+8-LTS)  
 OpenJDK 64-Bit Server VM Microsoft-30338 (build 17.0.2+8-LTS, mixed mode, sharing)
 
+Environment download can be found here: https://docs.microsoft.com/en-us/java/openjdk/download
+
 Created as an AI project for a university course. All of the code is my own.
 
 ## What is a Futoshiki Puzzle?
