@@ -32,10 +32,11 @@ The purpose of the futoshiki solver is to find the fastest potential answer or i
  4. The program uses a Backtracking Algorithm to search for a solution. The search follows a recursive, depth-first pattern. In the Backtracking algorithm each iteration performs the following:
      1. If the task if complete or invalid then return the GameBoard.
      2. Otherwise, find the first index with the smallest size.
-     3. Build a new GameBoard with a value selected for the chosen index and update the inferences.
-     4. If a failure is returned continue to iterate through the list of possible values until a solution is retuned.
-     5. If no solution is returned then return a failure.
- 5. If a solution is found then build an output file in the local directory containing the solution.
+     3. Continue to the next level of the search using a GameBoard with the value selected for the chosen index.
+     4. Update the inferences.
+     5. If a failure is returned continue to iterate through the list of possible values until a solution is retuned.
+     6. If no solution is returned then return a failure.
+ 5. If a solution is found with a completed state then build an output file in the local directory containing the solution.
 
 ### How to Run
  1. Clone the futoshiki repository
