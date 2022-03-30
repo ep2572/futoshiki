@@ -26,11 +26,11 @@ The purpose of the futoshiki solver is to find the fastest potential answer or i
      - A state is a 2D Array of Integer Lists. 
      - Any index where the initial state is known contains a list of one element, all other indices contain a list of integers from 1 to n, representing the possible values
  2. The vertical and horizontal rules are analyzed and adjustments to the lists of possible values are inferred.
-     - Even if no known value exists the uppor or lower bound of an index can be eliminated due to its proximity to a rule.
- 3. The initial state is then placed into a GameBoard class. The the gameboard class initialized with the initial state will then check each index and for any index that contains only one integer it will perform an infreence update. The inference update eliminates that value from all lists in the same row or column. ***If this results in any list length of 0 then the solution is known to be impossible.***
+     - Even if no known value exists the upper or lower bound of an index can be eliminated due to its proximity to a rule.
+ 3. The initial state is then placed into a GameBoard class. The the gameboard class initialized with the initial state will then check each index and for any index that contains only one integer it will perform an inference update. The inference update eliminates that value from all lists in the same row or column. ***If this results in any list length of 0 then the solution is known to be impossible.***
      - The initial state is the root of a tree representing the searched paths.
- 4. The program uses a Backtracking Algorithm to search for a solution. The search follows a recursive, depth-first pattern. In the Backtracking algorithm each iteration performs the following:
-     1. If the task if complete or invalid then return the GameBoard.
+ 4. The program uses a Backtracking Algorithm to search for a solution. In the Backtracking algorithm each iteration performs the following:
+     1. If the task is complete or invalid then return the GameBoard.
      2. Otherwise, find the first index with the smallest size.
      3. Continue to the next level of the search using a GameBoard with the value selected for the chosen index.
      4. Update the inferences.
